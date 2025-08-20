@@ -19,7 +19,7 @@ const GAME_CONFIG = {
 };
 
 // Individual Word Component
-const Word = ({ word, position, onComplete, onMiss }) => {
+const Word = ({ word, position, onMiss }) => {
   const [top, setTop] = useState(position.top);
   const hasMissed = useRef(false);
 
@@ -169,7 +169,6 @@ const InputBox = ({ value, onChange, onSubmit, gameActive, placeholder }) => {
 // Main Game Board Component
 const GameBoard = ({ 
   words, 
-  gameActive, 
   onWordComplete, 
   onWordMiss, 
   children 

@@ -317,10 +317,10 @@ const TypingSpeedRacer = () => {
 
     // Start WPM calculator
     const wpmStartTime = Date.now();
-    wmpCalculatorRef.current = setInterval(() => {
+    wpmCalculatorRef.current = setInterval(() => {
       setWpm(prevWpm => {
         const currentTime = Date.now();
-        const timeElapsed = (currentTime - wmpStartTime) / 1000 / 60; // minutes
+        const timeElapsed = (currentTime - wpmStartTime) / 1000 / 60; // minutes
         if (timeElapsed > 0) {
           setTotalChars(currentTotalChars => {
             const calculatedWPM = Math.round(currentTotalChars / 5 / timeElapsed);

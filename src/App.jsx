@@ -21,18 +21,17 @@ const GAME_CONFIG = {
 // Individual Word Component
 const Word = ({ word, position, onComplete, onMiss }) => {
   const [top, setTop] = useState(position.top);
-  
+  const hasMissed = useRef(false);
+
   useEffect(() => {
     const interval = setInterval(() => {
       setTop(prev => {
         const newTop = prev + GAME_CONFIG.WORD_FALL_SPEED;
-        
-        // Check if word reached bottom
-        if (newTop > GAME_CONFIG.GAME_HEIGHT - 50) {
-          onMiss(word);
-          return prev;
+        if (newTop > GAME_CONFIG.GAME_HEIGHT - 50 && !hasMissed.current) {
+          hasMissed.current = true;
+          // Call onMiss outside of render/state update
+          setTimeout(() => onMiss(word), 0);
         }
-        
         return newTop;
       });
     }, 16); // ~60fps

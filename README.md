@@ -47,7 +47,6 @@ Open your browser and go to:
 http://localhost:3000
 
 
-(or the port shown in your terminal)
 
 Technologies Used
 
